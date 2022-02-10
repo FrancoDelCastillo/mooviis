@@ -3,8 +3,10 @@
 Web app where you can find movies and watch their trailers
 
 Consuming APIs from movieDB
+
 Mobile first design
-still in process
+
+Still in process
 
 In the project directory, you can run:
 
