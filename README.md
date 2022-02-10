@@ -1,8 +1,10 @@
-# Getting Started with Create React App
+## Mooviis
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web app where you can find movies and watch their trailers
 
-## Available Scripts
+Consuming APIs from movieDB
+Mobile first design
+still in process
 
 In the project directory, you can run:
 
