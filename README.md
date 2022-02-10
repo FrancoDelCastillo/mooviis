@@ -1,6 +1,8 @@
 ## Mooviis
 
-Web app where you can find movies and watch their trailers
+Web app in ReactJS
+
+You can find movies and watch their trailers
 
 Consuming API from movieDB
 
