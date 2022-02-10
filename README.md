@@ -2,7 +2,7 @@
 
 Web app where you can find movies and watch their trailers
 
-Consuming APIs from movieDB
+Consuming API from movieDB
 
 Mobile first design
 
