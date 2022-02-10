@@ -1,0 +1,39 @@
+.container-footer {
+  display: flex;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  height: 160px;
+  width: 100%;
+  
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo__logo {
+  fill: white;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.footer-logo__title {
+  font-size: 2rem;
+  width: auto;
+  font-style: italic;
+  font-family: "Bebas Neue";
+}
+
+.container-footer__icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-footer__name {
+}
