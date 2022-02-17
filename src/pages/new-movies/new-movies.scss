@@ -1,0 +1,18 @@
+.new-movies__row{
+ margin: 0;   
+ align-items: center;
+ justify-content: center;
+ padding-top: 80px;
+}
+
+.new-movies__title{
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.col-pagination-movies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

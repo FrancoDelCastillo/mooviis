@@ -56,12 +56,15 @@ function PosterMovie(props){
 function InfoMovie(props){
     const {movie_id} = useParams();
     const {overview, genres,title, release_date} = props;
-    let converted_to_date = new Date(release_date)
-    let released_year = new Intl.DateTimeFormat('en-US', {year: "numeric"}).format(converted_to_date)
     
-    const [isVisibleModal, setIsVisibleModal] = useState(false)
+    let convert_to_date = new Date(release_date)
+    let released_year = new Intl.DateTimeFormat('en-US', {year: "numeric"}).format(convert_to_date)
+
     const videoMovie = useFetch(`${API_URL}/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`)
 
+    console.log(videoMovie)
+
+    const [isVisibleModal, setIsVisibleModal] = useState(false)
 
     const openModal = ()=>{
         setIsVisibleModal(true)
@@ -76,15 +79,15 @@ function InfoMovie(props){
             if(videoMovie.result.results.length > 0){
                 return(
                     <>
-                <Button className="info-movie__header__button-trailer" onClick={openModal}>
-                    <BsPlayCircle/> Watch trailer
-                </Button>
-                <ModalTrailer
-                    videoKey={videoMovie.result.results[0].key}
-                    videoPlatform={videoMovie.result.results[0].site}
-                    isOpen={isVisibleModal}
-                    close={closeModal}
-                />
+                        <Button className="info-movie__header__button-trailer" onClick={openModal}>
+                            <BsPlayCircle/> Watch trailer
+                        </Button>
+                        <ModalTrailer
+                            videoKey={videoMovie.result.results[0].key}
+                            videoPlatform={videoMovie.result.results[0].site}
+                            isOpen={isVisibleModal}
+                            close={closeModal}
+                        />
                     </>
                 )
             }

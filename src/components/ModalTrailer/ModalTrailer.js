@@ -8,14 +8,33 @@ import "./ModalTrailer.scss"
 
 export default function ModalTrailer(props){
     const {videoKey, videoPlatform, isOpen, close} = props;
+    
+    const [urlVideo, setUrlVideo]= useState(null);
+    
+    useEffect(()=>{
+        switch(videoPlatform){
+            case "YouTube":
+                setUrlVideo(`https://www.youtube.com/watch?v=${videoKey}`);
+                break;
+            case "Vimeo":
+                setUrlVideo(`https://vimeo.com/${videoKey}`);
+                break;
+            default:
+                break;
+        }
+    },[videoKey, videoPlatform])
+    
 
     return(
         <Modal className="modal-video"
-        visible={isOpen}
+        show={isOpen}
         centered
-        onCancel={close}
-        footer={false}>
-            This is the modal
+        onHide={close}
+        keyboard={false}>
+            <Modal.Header  closeButton>
+            </Modal.Header>
+            <ReactPlayer className='react-player'  width="80%"
+            height="80%" url={urlVideo} controls />
         </Modal>
     )
 }

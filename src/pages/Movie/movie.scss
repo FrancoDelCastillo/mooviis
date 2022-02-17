@@ -25,11 +25,8 @@
 .render-movie__container__poster-info{
   height: 100%;
   width: 100%;
-  position: absolute;
-  top:0;
-  left: 0;
   z-index: 2;
-  padding: 16px;
+  padding: 36px;
   padding-top: 100px;
 }
 
@@ -59,9 +56,9 @@
 }
 
 .poster-movie {
-  height: 300px;
+  height: 380px;
   box-shadow: 0px 0px 26px 2px black;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 
@@ -103,3 +100,35 @@
 }
 
 **/
+
+@media screen and (min-width: 850px){
+
+  .render-movie__container{
+    justify-content: center;
+  }
+
+  .render-movie__container__poster-info{
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    
+  }
+
+  .poster-movie__container{
+    width: 50%;
+  }
+
+  .poster-movie{
+    height: 540px;
+  }
+
+  .info-movie__container{
+    width: 50%;
+    font-size: 1rem;
+  }
+
+  .info-movie__header{
+    margin-bottom: 20px;
+  }
+
+}

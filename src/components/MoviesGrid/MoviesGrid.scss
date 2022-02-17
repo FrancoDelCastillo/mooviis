@@ -1,0 +1,43 @@
+.movies-grid__card{
+    margin-bottom: 20px;
+    
+}
+
+.card{
+    border-radius: 0px;
+    height: 450px;
+    background: #023047;
+    &:hover {
+        background: #ffb703;
+    }    
+    
+}
+.card-img{
+    height: 380px;
+}
+
+.card-body{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 4px;
+
+}
+
+.card-title{
+    overflow: hidden;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    
+}
+
+
+.movie-card__link{
+    text-decoration: none;
+    color: white;
+    &:hover {
+        color: white;
+    }    
+}

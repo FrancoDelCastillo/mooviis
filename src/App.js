@@ -1,4 +1,4 @@
-import { useState} from "react";
+import {useState} from "react";
 
 // routing system
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
@@ -13,7 +13,7 @@ import SpinnerLoading from "./components/SpinnerLoading";
 
 // pages
 import Home from "./pages/home"
-import Movie from "./pages/Movie/movie"
+import Movie from "./pages/movie"
 import NewMovies from "./pages/new-movies"
 import PopularMovies from "./pages/popular-movies"
 import Search from "./pages/search"
@@ -38,7 +38,7 @@ function App() {
   if (!newMovies) {
     setSpinner(true)
   } else {
-    setTimeout(()=>{setSpinner(false)},500)
+    setTimeout(()=>{setSpinner(false)},2000)
   }
 
   return (

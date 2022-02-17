@@ -1,0 +1,20 @@
+
+
+.rc-pagination-item, .rc-pagination-prev .rc-pagination-item-link, .rc-pagination-next .rc-pagination-item-link{
+    background-color: black !important;
+    color: white !important;
+    font-size: 1.1rem;
+    &:hover{
+        border-color: #ffb703 !important;
+    }
+    &-active{
+        border-color: #ffb703 !important;
+    }
+}
+
+
+.rc-pagination-item a {
+    color: white !important;
+    border-color: #ffb703 !important;
+}
+

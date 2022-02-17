@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 
 import Table from "react-bootstrap/Table"
 import "./MovieList.scss"
+import {URL_POSTER_PATH} from "../../utils/constants";
 
 export default function MovieList(props){
  
@@ -28,7 +29,7 @@ export default function MovieList(props){
                             <td className="movie-list__table__body__item">
                                 <Link to={`/movie/${movie.id}`} className="table-movie__link">
                                     <span className="movie-list__movie-title">{movie.title}</span>
-                                    <img className="movie-thumbnail" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title}/>
+                                    <img className="movie-thumbnail" src={`${URL_POSTER_PATH}${movie.poster_path}`} alt={movie.title}/>
                                 </Link>
                             </td>
                         </tr> 
