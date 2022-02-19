@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 // to render results
 import MoviesGrid from "../../components/MoviesGrid"
+import PaginationMovies from "../../components/Pagination/Pagination"
 
 // to catch query strings in URL
 import queryString from "query-string"
@@ -31,27 +32,43 @@ export default function Search(){
     // response from API
     const [moviesObtained, setMoviesObtained ] = useState([])
 
+    // page obtained
+    const [page, setPage]= useState(1);
+
     // consume API
     useEffect(()=>{
         (async ()=>{
-            const getSearch = queryString.parseUrl(location.search);
-            const { find } = getSearch.query;
-            if(find !== undefined){
-            const response = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${find}&page=1&include_adult=false`);
+            // access to params encoded in the URL with location.search
+            const urlParams = queryString.parseUrl(location.search);
+            const { find } = urlParams.query;
+            if(find !== undefined ){
+            const response = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${find}&page=${page}&include_adult=false`);
             const movies = await response.json();
             setMoviesObtained(movies);
-            setSearchedValue(find);
-            }
+            } 
         })();
-    },[searchedValue,location.search]);
+    },[searchedValue, location.search, page]);
 
     const onChangeSearch = (event)=>{
+        // location is a react-router-dom object based on window.location
+        // access to params encoded in the URL with location.search
+        // parse params with queryString as an object with a url and query property
+        // query property parsed from URL encoding to string
         const urlParams = queryString.parseUrl(location.search);
+        // assign query's value with every change in search bar
         urlParams.query.find = event.target.value;
+        // add query's value from search bar to broswer bar
         history(`?find=${urlParams.query.find}`);
+        // update state value with every change
         setSearchedValue(event.target.value);
+        setPage(1);
     }
 
+    console.log(moviesObtained)
+
+    const updatePageNumber = (pageNumber)=>{
+        setPage(pageNumber)
+    }
 
     return(
             <Row className="search__row">
@@ -61,10 +78,20 @@ export default function Search(){
                     <Form.Control onChange={(event)=>{onChangeSearch(event)}} type="text" placeholder="search a movie" className="search__bar"/>
                 </FloatingLabel>
                 </Col>
-                {moviesObtained.results &&
+                {moviesObtained.total_pages ?
+                <>
                     <Row lg={12}>
                         <MoviesGrid movieList={moviesObtained} />
-                    </Row>}
+                    </Row>
+                    <Col lg={12} className="col-pagination-search">
+                        <PaginationMovies 
+                        currentPage={moviesObtained.page}
+                        totalItems={moviesObtained.total_results}
+                        updatePageNumber={updatePageNumber}
+                        />
+                    </Col>
+                </> : <div className="search-no-results">No results :(</div>
+                }
             </Row>
         
     )

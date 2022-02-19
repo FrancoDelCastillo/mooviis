@@ -5,6 +5,8 @@ export default function PaginationMovies(props){
 
     const {currentPage, totalItems, updatePageNumber} = props;
 
+    // onChange passes the current page number as argument
+    // updatePageNumber(page)
     return(
         <Pagination className="pagination"
 

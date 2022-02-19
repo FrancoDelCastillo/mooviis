@@ -25,10 +25,11 @@ export default function NewMovies(){
         })();
     },[page]);
 
-    // update page number
+    // update pagination number state
     const updatePageNumber = pageNumber => {
         setPage(pageNumber)
     }
+    
 
     return(
         <Row className="new-movies__row">

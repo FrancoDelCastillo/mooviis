@@ -11,7 +11,6 @@ export default function MovieList(props){
     const { title, moviesList:{loading, result} } = props;
     const {results} = result;
 
-    
     return(
     <>
     {loading || !result?<SpinnerLoading/>:
