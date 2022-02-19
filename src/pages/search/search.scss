@@ -1,13 +1,20 @@
-.popular-movies__row{
+.search__row{
     margin: 0;   
     align-items: center;
     justify-content: center;
     padding-top: 80px;
 }
-   
-.popular-movies__title{
+
+.search__row__col{
+    width: 50%;
+}
+
+.search__title{
     text-align: center;
     color: white;
     margin-bottom: 30px;
 }
-   
+
+.search__bar{
+    margin-bottom: 30px;
+}

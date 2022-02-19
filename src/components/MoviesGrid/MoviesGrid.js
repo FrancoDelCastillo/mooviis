@@ -11,7 +11,7 @@ export default function MoviesGrid(props){
 
     return (
         <>
-            {results.map(movie =>{return <Col className="movies-grid__card" xl={2} lg={3} md={4} sm={6} xs={10} key={movie.id}><MovieCard movie={movie}/></Col>})}
+            {results.map(movie =>{return <Col className="movies-grid__card" xl={2} lg={3} md={4} sm={6} xs={12} key={movie.id}><MovieCard movie={movie}/></Col>})}
         </>
     )
 
