@@ -36,13 +36,12 @@ export default function Search(){
         (async ()=>{
             const getSearch = queryString.parseUrl(location.search);
             const { find } = getSearch.query;
-            if(find===undefined){
-                queryString.stringify({find:undefined});
-            }
+            if(find !== undefined){
             const response = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${find}&page=1&include_adult=false`);
             const movies = await response.json();
             setMoviesObtained(movies);
             setSearchedValue(find);
+            }
         })();
     },[searchedValue,location.search]);
 
