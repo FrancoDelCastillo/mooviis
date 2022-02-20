@@ -9,24 +9,30 @@ import { LinkContainer } from "react-router-bootstrap"
 
 import "./MenuTop.scss"
 
+import queryString from "query-string"
+import { useLocation } from "react-router-dom"
+
 export default function MenuTop(){
 
     // nav-item id state
     const [isItemID, setIsItemID] = useState(1);
 
+    const location = useLocation();
+    const urlParams = queryString.parseUrl(location.pathname);
+
     // hook to check pathname in browser bar and every time handleItems() is executed
-    useEffect(()=>{
+    useEffect(()=>{            
         // using querySelectorAll() to be able to use forEach()
-        const navItems = document.querySelectorAll(".nav-item");   
+        const navItems = document.querySelectorAll(".nav-item");
         navItems.forEach(item =>{            
-            if(window.location.pathname === item.children[0].pathname){
-                item.classList.add("--selected")
+            if(urlParams.url === item.children[0].pathname){
+                item.classList.add("--selected");
             } else {
-                item.classList.remove("--selected")
+                item.classList.remove("--selected");
             }
         })
-    },[isItemID])
-    
+    },[isItemID, urlParams])
+
     // adds --selected class to an unique nav-item by its id
     const handleItems = (Event)=> {
         const itemSelected = Event.currentTarget;

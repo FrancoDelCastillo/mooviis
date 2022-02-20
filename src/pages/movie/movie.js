@@ -55,14 +55,11 @@ function PosterMovie(props){
 
 function InfoMovie(props){
     const {movie_id} = useParams();
-    const {overview, genres,title, release_date} = props;
-    
-    let convert_to_date = new Date(release_date)
-    let released_year = new Intl.DateTimeFormat('en-US', {year: "numeric"}).format(convert_to_date)
+    const {overview, genres,title, release_date} = props;    
+    const convert_to_date = new Date(release_date)
+    const released_year = new Intl.DateTimeFormat('en-US', {year: "numeric"}).format(convert_to_date)
 
     const videoMovie = useFetch(`${API_URL}/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`)
-
-    console.log(videoMovie)
 
     const [isVisibleModal, setIsVisibleModal] = useState(false)
 

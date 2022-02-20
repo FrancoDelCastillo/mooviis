@@ -18,10 +18,8 @@ export default function SliderMovies(props){
         )
     }
 
-    const {results} = movies.result
-
-    const topten_results = results.slice(0, results.length/2)
-
+    const {results} = movies.result;
+    const topten_results = results.slice(0, results.length/2);
 
     return(
         <div className="slidermovies-container">
@@ -33,9 +31,7 @@ export default function SliderMovies(props){
                                 </Carousel.Item>
                     }
                 )}
-                
             </Carousel>
-
         </div>
     )
 }
@@ -43,12 +39,12 @@ export default function SliderMovies(props){
 // internal component 
 function Movie(props){ 
 
-    const {idMovie, backdropPath, title, overview} = props
+    const {idMovie, backdropPath, title, overview} = props;
     
-    const imgUrl = `https://image.tmdb.org/t/p/original${backdropPath}`
+    const imgUrl = `https://image.tmdb.org/t/p/original${backdropPath}`;
     
-    const regex =/.+?([a-z]\.)/m
-    const firstSentence = overview.toString().match(regex)[0]
+    const regex =/.+?([a-z]\.)/m;
+    const firstSentence = overview.toString().match(regex)[0];
 
     return(
         <div className="movie-container">
@@ -58,7 +54,7 @@ function Movie(props){
                     <div className="movie-container__movie-info__overview">
                         <h2 className="movie-container__movie-info__overview__title">{title}</h2>
                         <p>{firstSentence}</p>
-                        <Link to={`/movie/${idMovie}`}>
+                        <Link to={`/movie/${idMovie}`} >
                         <Button className="movie-container__movie-info__button">See more</Button>
                         </Link>
                     </div>
