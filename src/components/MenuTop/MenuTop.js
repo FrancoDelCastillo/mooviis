@@ -11,12 +11,12 @@ import "./MenuTop.scss"
 
 export default function MenuTop(){
 
-    // item id state
+    // nav-item id state
     const [isItemID, setIsItemID] = useState(1);
 
-    // hook for verify pathname browser and it's enabled when handleItems() is executed
+    // hook to check pathname in browser bar and every time handleItems() is executed
     useEffect(()=>{
-        // using querySelectorAll to be able to use forEach()
+        // using querySelectorAll() to be able to use forEach()
         const navItems = document.querySelectorAll(".nav-item");   
         navItems.forEach(item =>{            
             if(window.location.pathname === item.children[0].pathname){
@@ -27,6 +27,7 @@ export default function MenuTop(){
         })
     },[isItemID])
     
+    // adds --selected class to an unique nav-item by its id
     const handleItems = (Event)=> {
         const itemSelected = Event.currentTarget;
         const itemSelected_id = parseInt(itemSelected.id);
@@ -40,13 +41,8 @@ export default function MenuTop(){
         closeMenu();
     }
 
-    const clickedLogo = ()=>{
-        /*
-        const navItems = document.querySelectorAll(".nav-item");  
-        navItems.forEach(item => {item.classList.remove("--selected")})
-        document.getElementById(1).classList.add("--selected");
-        */
-    
+    // redirects to home when logo is clicked and adds -selected class to home's nav-item
+    const clickedLogo = ()=>{    
        const getItems = document.getElementsByClassName("nav-item")
         for(let i = 1; i < getItems.length;++i){
             getItems[i].classList.remove("--selected")
@@ -59,8 +55,9 @@ export default function MenuTop(){
     const openMenu = () =>{setIsMenuOpen(true)}
     const closeMenu = ()=> {setIsMenuOpen(false)}
 
-    // close menu when clicked outside
+    // close menu when clicked outside nav tag
     const ref = useRef();
+
     useEffect(()=>{
         const clickOutsideMenu = e =>{
             if(isMenuOpen && ref.current && !ref.current.contains(e.target)){

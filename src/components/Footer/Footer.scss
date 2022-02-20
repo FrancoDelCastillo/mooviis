@@ -8,6 +8,13 @@
   padding: 0;
   height: 160px;
   width: 100%;
+  >a{
+    text-decoration: none;
+    color: white;
+    :hover{
+      color: white;
+    }
+  }
   
 }
 
@@ -28,12 +35,20 @@
   width: auto;
   font-style: italic;
   font-family: "Bebas Neue";
+ 
 }
 
 .container-footer__icons {
   display: flex;
   justify-content: space-around;
+  >a{    
+    text-decoration: none;
+    color: white;
+    :hover{
+      color: white;
+    }
+
+  }
 }
 
-.container-footer__name {
-}
+
