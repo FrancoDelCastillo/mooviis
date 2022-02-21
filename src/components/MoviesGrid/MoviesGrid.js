@@ -24,7 +24,10 @@ function MovieCard(props){
     return (
         <Link to={`/movie/${id}`} className="movie-card__link">
         <Card>
-            <Card.Img src={`${URL_POSTER_PATH}${poster_path}`}/>
+            {poster_path !== null ? <Card.Img src={`${URL_POSTER_PATH}${poster_path}`}/>:
+                <Card.Img src={`../../assets/img/default-placeholder.png`}/>
+            }
+            
             <Card.Body>
                 <Card.Title>
                     {title}
