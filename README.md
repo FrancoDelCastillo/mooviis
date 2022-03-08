@@ -1,6 +1,6 @@
 ## Mooviis
 
-Web app in ReactJS
+Web app built with ReactJs
 
 You can find movies and watch their trailers
 
